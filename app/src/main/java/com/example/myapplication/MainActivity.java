@@ -16,7 +16,6 @@ public class MainActivity extends AppCompatActivity {
     private TextView textView;
     private Button yesBtn;
     private Button noBtn;
-    private Button showAnswer;
 
     private Question[] questions = new Question[] {
             new Question(R.string.question1,true), //0
@@ -40,7 +39,6 @@ public class MainActivity extends AppCompatActivity {
         textView = findViewById(R.id.textView);
         yesBtn = findViewById(R.id.yesBtn);
         noBtn = findViewById(R.id.noBtn);
-        showAnswer = findViewById(R.id.showAnswer);
 
         textView.setText(questions[questionIndex].getQuestionResId());
         yesBtn.setOnClickListener(new View.OnClickListener() {
@@ -67,14 +65,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        showAnswer.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, AnswerActivity.class);
-                intent.putExtra("answer",questions[questionIndex].isAnswerTrue());
-                startActivity(intent);
-            }
-        });
     }
 
     @Override
